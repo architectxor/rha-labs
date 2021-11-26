@@ -1,0 +1,34 @@
+ssh student@serverb
+mkdir -p ~/Documents/project_plans
+touch season{1,2}_project_plan.odf
+touch tv_season{1,2}_episode{1..6}.ogg
+touch mystery_chapter{1..8}.odf
+mkdir -p ~/Videos/season{1,2}/
+mv tv_season1_episode{1..6}.ogg ~/Videos/season1/
+mv tv_season2_episode{1..6}.ogg ~/Videos/season2/
+mkdir -p ~/Documents/my_bestseller/chapters/
+mv mystery_chapter{1..8}.odf ~/Documents/my_bestseller/chapters/
+mkdir ~/Documents/my_bestseller/{editor, changes, vacation}/
+cd ~/Documents/my_bestseller/chapters/
+mv mystery_chapter{1..2}.odf ../editor/
+mv mystery_chapter{7..8).odf ../vacation/
+cd ~/Videos/season2/
+mv tv_season2_episode1.ogg ~/Documents/my_bestseller/vacation/
+cd ~/Documents/my_bestseller/vacation/
+ls -l
+cd -
+cp tv_season2_episode2.ogg ~/Documents/my_bestseller/vacation/
+cd -
+cd ..
+cp -v chapters/mystery_chapter[56].ogg changes/
+cd changes/
+cp -v mystery_chapter5.ogg mystery_chapter5_$(date +%F).odf
+cp -v mystery_chapter5.ogg mystery_chapter5_$(date +%s).odf
+cd .. && rm -rvf changes/
+rm -rvf vacation/
+cd ~
+ln ~/Documents/project_plans/season2_project_plan.odf ~/Documents/backups/season2_project_plan.odf.back
+exit
+lab files-review grade
+lab files-review finish
+
